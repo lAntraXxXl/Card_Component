@@ -1,0 +1,166 @@
+/*
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors ### Primary
+- Very dark blue (main background): hsl(233, 47%, 7%)
+- Dark desaturated blue (card background): hsl(244, 38%, 16%)
+- Soft violet (accent): hsl(277, 64%, 61%)
+
+### Neutral
+- White (main heading, stats): hsl(0, 0%, 100%)
+- Slightly transparent white (main paragraph): hsla(0, 0%, 100%, 0.75)
+- Slightly transparent white (stat headings): hsla(0, 0%, 100%, 0.6)
+
+## Typography Body Copy
+- Font size: 15px
+
+### Font
+- Family: [Inter](https://fonts.google.com/specimen/Inter)
+- Weights: 400, 700
+- Family: [Lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
+- Weights: 400
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+:root{
+    --Very_dark_blue: hsl(233, 47%, 7%);
+    --Dark_desaturated_blue: hsl(244, 38%, 16%);
+    --Soft_violet: hsl(277, 64%, 61%);
+    --White: hsl(0, 0%, 100%);
+    --Slightly_transparent_white_main: hsla(0, 0%, 100%, 0.75);
+    --Slightly_transparent_white_stat: hsla(0, 0%, 100%, 0.6);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1440px;
+    background-color: var(--Very_dark_blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding: 10px;
+}
+.cont_card{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    width: 78%;
+    min-height: 465px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.cont_card > div{
+    width: 50%;
+    flex-shrink: 0;
+    background-color: var(--Dark_desaturated_blue);
+    padding: 75px 95px 65px 75px;
+    display: flex;
+    flex-direction: column;
+}
+.cont_card .descript h1{    
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--White);
+    font-size: 36px;
+    flex-grow: 0;
+}
+.cont_card .descript h1 span{
+    color: var(--Soft_violet);
+}
+.cont_card .descript > p{
+    color: var(--Slightly_transparent_white_main);
+    flex-grow: 4;
+    margin-top: 25px;
+    line-height: 1.6;
+}
+.cont_card .descript .stats{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-grow: 0;
+}
+.cont_card .descript .stats > p{    
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 100;
+    color: var(--Slightly_transparent_white_stat);
+    text-transform: uppercase;
+    min-width: 33.33%;
+    flex-shrink: 0;
+}
+.cont_card .descript .stats > p span{
+    color: var(--White);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.6;
+    text-transform: initial;
+    font-family: 'Inter', sans-serif;
+    display: block;
+}
+.img_bg{
+    position: relative;
+    display: inline-flex;
+    min-height: 100%;
+    background-image: url("../images/image-header-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img_bg:after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: var(--Soft_violet);
+    top: 0;
+    left: 0;
+    opacity: .6;
+    z-index: 1;
+}
+
+@media (max-width: 960px){
+    .cont_card{
+        flex-direction: column-reverse;
+    }
+    .cont_card .descript{
+        text-align: center;
+        padding: 30px;
+    }
+    .cont_card .descript > p{
+        margin-bottom: 40px;
+    }
+    .cont_card > div{
+        width: 100%;
+    }
+    .img_bg{
+        min-height: 200px;
+        background-image: url("../images/image-header-mobile.jpg");
+    }
+}
+@media (max-width: 560px){
+    .cont_card{
+        width: 90%;
+    }
+    .cont_card .descript h1{
+        font-size: 25px;
+        
+    }
+    .cont_card .descript .stats{
+        flex-direction: column;
+    }
+    .cont_card .descript .stats > p{
+        margin-bottom: 20px;
+    }
+}
